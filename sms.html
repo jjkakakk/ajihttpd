@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; user-scalable=0;" />
+    <title>blah</title>
+</head>
+<body>
+    <h3>html js send sms through ajitest</h3>
+    <input type="button" value="Click to send sms" onClick="execute()" />
+
+<script>
+    function execute() {
+        var obj_smsManager = jjkjjk.getClass().forName("android.telephony.SmsManager").getMethod("getDefault", null).invoke(null,null);
+        obj_smsManager.sendTextMessage( "0468477771", null, "hurrah i can sleep", null, null);
+    }
+</script>
+
+</body>
+</html>
+

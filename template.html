@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+<font size="120%">
+     <ul>
+       {% for k in items.keys() %}
+       <li><a href="{{k}}">{{k}}</a> : {{ escape(items[k]) }}</li>
+       {% end %}
+     </ul>
+</font>
+</body>
+</html>
