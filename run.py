@@ -12,28 +12,30 @@ define("port", default=8787, help="run on the given port", type=int)
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         items = { 
-            "emu-writesd.html" : "write to the sd card through exploit",
-            "example1.html" : "default toast example page",
-            "id" : "shortlink id.html",
-            "id.html" : "print the id of the current user through exploit",
-            "ls" : "shortlink ls.html",
-            "ls.html" : "list the contents of /storage/sdcard0/Download",
-            "ls2" : "shortlink ls2.html",
-            "ls2.html" : "list the contents of /mnt/sdcard0/",
-            "lsd" : "shortlink lsd.html",
-            "lsd.html" : "list the contentes of /mnt/sdcard0/Download useful for after write",
-            "n" : "shortlin example1.html",
-            "old" : "redundant/working/broken attempts",
-            "run.py" : "the server",
-            "sms" : "shortlink sms.html",
-            "sms.html" : "send sms through exploit",
-            "template.html" : "server template",
-            "write" : "shortlink emu-writesd.html"
+            "aji/emu-writesd.html" : "write to the sd card through exploit",
+            "aji/example1.html" : "default toast example page",
+            "aji/id" : "shortlink id.html",
+            "aji/id.html" : "print the id of the current user through exploit",
+            "aji/ls" : "shortlink ls.html",
+            "aji/ls.html" : "list the contents of /storage/sdcard0/Download",
+            "aji/ls2" : "shortlink ls2.html",
+            "aji/ls2.html" : "list the contents of /mnt/sdcard0/",
+            "aji/lsd" : "shortlink lsd.html",
+            "aji/lsd.html" : "list the contents of /mnt/sdcard0/Download useful for after write",
+            "aji/n" : "shortlin example1.html",
+            "aji/old" : "redundant/working/broken attempts",
+            "aji/run.py" : "the server",
+            "aji/sms" : "shortlink sms.html",
+            "aji/sms.html" : "send sms through exploit",
+            "aji/template.html" : "server template",
+            "aji/write" : "shortlink emu-writesd.html"
             }
         self.render("template.html", title="AddJavascriptInterface httpd", items=items)
 
 def main():
     tornado.options.parse_command_line()
+    print "default port is 8787. hubert.\n"
+    print "load up the vulnerable android app and point it at this server...\n";
     application = tornado.web.Application([
         (r"/", MainHandler),
         (r"/aji/(.*)",tornado.web.StaticFileHandler, {"path": "./"},),
